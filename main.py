@@ -40,11 +40,37 @@
 #Modify your program to read the poem from user input
 #Modify your program to randomly rearrange the words on each line
 
-The_file = open("PNPoem.txt")
+#Challenge 1
 
-get_file_lines = The_file.readlines()
-for line in get_file_lines:
-    print(line)
+#This function opens the text file and prints it forward. It is very 
+#important to remember to open and close the file as well as call the function
+filename = open("PNPoem.txt")
 
-The_file.close()
+def get_file_lines(filename):
+    getting_the_file = filename.readlines()
+    for line in getting_the_file:
+        print(line)
+    filename.close()
+
+get_file_lines(filename)
+
+#This function reverses the poem under lines_list. It is identical to get_file_lines function
+#With the addition of the slicing trick [::-1] since strings are also sequences. 
+#??? Question: Can I keep file open across multiple functions ????
+lines_list = open("CTPoem.txt")
+
+def lines_printed_backwards(lines_list):
+    getting_the_reverse_file = lines_list.readlines()
+    for line in getting_the_reverse_file:
+        print(line[::-1])
+    lines_list.close()
+
+lines_printed_backwards(lines_list)
+
+
+
+
+
+
+
 
