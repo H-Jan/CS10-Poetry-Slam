@@ -40,11 +40,16 @@
 #Modify your program to read the poem from user input
 #Modify your program to randomly rearrange the words on each line
 
-#Challenge 1
 
+
+
+#Challenge 1 GET FILE LINES
 #This function opens the text file and prints it forward. It is very 
 #important to remember to open and close the file as well as call the function
-filename = open("PNPoem.txt")
+
+file1 = input("Please include a poem: ")
+
+filename = open(file1, "r")
 
 def get_file_lines(filename):
     getting_the_file = filename.readlines()
@@ -54,23 +59,56 @@ def get_file_lines(filename):
 
 get_file_lines(filename)
 
-#This function reverses the poem under lines_list. It is identical to get_file_lines function
-#With the addition of the slicing trick [::-1] since strings are also sequences. 
-#??? Question: Can I keep file open across multiple functions ????
-lines_list = open("CTPoem.txt")
 
-def lines_printed_backwards(lines_list):
-    getting_the_reverse_file = lines_list.readlines()
-    for line in getting_the_reverse_file:
-        print(line[::-1])
-    lines_list.close()
+#Challenge 2 LINES PRINTED BACKWARDS
+#ADDING A NUMBER TO THE POEM LINE
+files2 = input("Please include another poem and I will read it backwards: ")
+lines_list = open(files2, "r")
 
-lines_printed_backwards(lines_list)
+with lines_list as operation:
+    poem = operation.readlines()
+
+openfile2 = open(files2, "w")
+
+with openfile2 as operation:
+    for(number, line) in enumerate(poem):
+        operation.write('%d %s' % (number + 1, line))
+    operation.close()
+#END OF ADDING A NUMBER TO THE LINE
+
+
+# PRINTING TEXT BACKWARDS
+lines_list = open(files2, "r")
+
+def Lines_printed_backwards(lines_list):
+   linear = lines_list.readlines()
+   for line in reversed(linear):
+       print(line)
+   lines_list.close()
+
+Lines_printed_backwards(lines_list)
+
+# END OF PRINTING TEXT BACKWARDS 
+
+#Challenge 3 Lines Printed Custom
 
 
 
+#PRINTING POEMS IN REVERSE 
+
+#This function printed the poem in reverse. I will save this for my special function
+#lines_list = open("CTPoem.txt")
+
+#def lines_printed_backwards(lines_list):
+    #getting_the_reverse_file = lines_list.readlines()
+#.append before reversing the text?
+    #for line in getting_the_reverse_file:
+     #   print(line[::-1])
+   # lines_list.close()
+
+#lines_printed_backwards(lines_list)
 
 
 
-
+#END OF PRINTING POEMS IN REVERSE 
 
