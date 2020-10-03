@@ -91,7 +91,21 @@ Lines_printed_backwards(lines_list)
 # END OF PRINTING TEXT BACKWARDS 
 
 #Challenge 3 Lines Printed Custom
+import random 
 
+files3 = input("Please include another poem and I will randomize it: ")
+
+lines_list = open(files3, "r")
+
+def Lines_printed_random(lines_list):
+    medium = lines_list.readlines()
+    length = len(medium)
+    for line in medium:
+        random.randint(0, length)
+        print(line)
+    lines_list.close()
+
+Lines_printed_random(lines_list)
 
 
 #PRINTING POEMS IN REVERSE 
