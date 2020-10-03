@@ -90,7 +90,7 @@ Lines_printed_backwards(lines_list)
 
 # END OF PRINTING TEXT BACKWARDS 
 
-#Challenge 3 Lines Printed Custom
+#Challenge 3 LINES PRINTED RANDOMLY
 import random 
 
 files3 = input("Please include another poem and I will randomize it: ")
@@ -98,30 +98,42 @@ files3 = input("Please include another poem and I will randomize it: ")
 lines_list = open(files3, "r")
 
 def Lines_printed_random(lines_list):
-    medium = lines_list.readlines()
-    length = len(medium)
-    for line in medium:
-        random.randint(0, length)
-        print(line)
+    middleman = lines_list.readlines()
+    length = (len(middleman)-1)
+    for line in middleman:
+        randomness = random.randint(0, length)
+        print(middleman[randomness])
     lines_list.close()
 
 Lines_printed_random(lines_list)
 
 
-#PRINTING POEMS IN REVERSE 
+#Challenge 4 PRINTING POEMS CUSTOM, specifically BACKWARDS  
 
 #This function printed the poem in reverse. I will save this for my special function
-#lines_list = open("CTPoem.txt")
 
-#def lines_printed_backwards(lines_list):
-    #getting_the_reverse_file = lines_list.readlines()
-#.append before reversing the text?
-    #for line in getting_the_reverse_file:
-     #   print(line[::-1])
-   # lines_list.close()
+file4 = input("Please include one last poem and I will print it backwards: ")
 
-#lines_printed_backwards(lines_list)
+lines_list = open(file4, "r")
 
+def lines_printed_backwards(lines_list):
+#This is defining our function lines_printed_backwards with the element lines_list 
+#which has our input variable file4 and our read format for the text file
+    getting_the_reverse_file = lines_list.readlines()
+#The line above breaks each line in lines_list into a list item
+    for line in getting_the_reverse_file:
+#For every item in the list (lines_list)
+       print(line[::-1])
+#This is where the magic happens. [::-1] is index slicing, with a start:stop:step-count.
+#Above, since there are no defined values for start, Python defaults it to 0 on the list
+#the list being in this case the elements (characters/letters) of each line of the poem
+# And since there are no defined values for the stop, it defaults to the last value on the
+#list and adds +1, which would be the final letter of each line of the poem. The -1 out puts 
+#every value, but does so in reverse instead. So the whole function produces a copy of all the
+#elements in the list, which is the poem itself, and outputs it in a reversed order
+    lines_list.close()
+
+lines_printed_backwards(lines_list)
 
 
 #END OF PRINTING POEMS IN REVERSE 
